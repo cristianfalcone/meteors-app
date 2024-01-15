@@ -8,6 +8,7 @@ export type Meteor = Selectable<MeteorTable>;
 const app = polka();
 
 app.get("/", async (req, res) => {
+  // TODO: validate and sanitize query params (e.g. using zod)
   const result = await findMeteors(req.query);
   const body = JSON.stringify(result);
 

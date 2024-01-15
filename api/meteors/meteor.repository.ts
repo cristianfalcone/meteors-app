@@ -50,6 +50,8 @@ export async function findMeteors({ year, mass, offset, limit }: Params = {}) {
     query = query.where("year", "=", year);
   }
 
+  const { count } = await getCount(query);
+
   if (offset) {
     query = query.offset(offset);
   }
@@ -64,5 +66,6 @@ export async function findMeteors({ year, mass, offset, limit }: Params = {}) {
   return {
     meteors,
     year,
+    count,
   };
 }

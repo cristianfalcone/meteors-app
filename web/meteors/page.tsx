@@ -10,6 +10,7 @@ export default function Meteors() {
 
   const {
     meteors,
+    count,
     newYear,
     error,
     isPending,
@@ -45,7 +46,7 @@ export default function Meteors() {
   return (
     <div className="mx-auto max-w-4xl p-4 flex flex-col gap-y-4 h-full">
       <MeteorForm
-        count={meteors.length}
+        count={count}
         showAlert={showAlert}
         year={year}
         mass={mass}

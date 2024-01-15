@@ -4,6 +4,10 @@ import { Database } from "../database";
 
 export const name = "MeteorSeeder";
 
+/**
+ * Inserts meteors into the database.
+ * @param db The database instance.
+ */
 export const run = async (db: Kysely<Database>) => {
   const tables = await db.introspection.getTables();
 

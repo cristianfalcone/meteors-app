@@ -17,6 +17,7 @@ export default function useMeteors(year: string, mass: string) {
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery<{
+    count: number;
     meteors: Meteor[];
     year: number;
   }>({
@@ -56,8 +57,12 @@ export default function useMeteors(year: string, mass: string) {
     },
   });
 
+  const lastPage = data?.pages[data.pages.length - 1];
+
+  const count = lastPage?.count ?? 0;
+
   // Update the year in the form if API returns a different year
-  const lastYear = data?.pages[data.pages.length - 1]?.year;
+  const lastYear = lastPage?.year;
 
   const newYear = useMemo(() => {
     if (lastYear) {
@@ -80,6 +85,7 @@ export default function useMeteors(year: string, mass: string) {
 
   return {
     meteors,
+    count,
     newYear,
     error,
     isPending,

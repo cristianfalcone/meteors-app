@@ -14,7 +14,7 @@ export default function MeteorListItem({ meteor }: { meteor: Meteor }) {
             {meteor.name}
           </p>
           <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-            {meteor.year}
+            {String.fromCodePoint(0x1f5d3)} {meteor.year} - {meteor.mass}g
           </p>
         </div>
       </div>

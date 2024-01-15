@@ -52,7 +52,7 @@ export default function MeteorForm({
       <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         <div className="px-6 py-5 text-center text-sm font-medium">
           <span className="text-gray-900">{count}</span>{" "}
-          <span className="text-gray-600">meteors found</span>
+          <span className="text-gray-600">meteor{count != 1 && "s"} found</span>
         </div>
         <Input
           label="Year"
