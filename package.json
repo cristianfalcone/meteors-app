@@ -1,0 +1,46 @@
+{
+  "name": "meteors-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bootstrap": "tsx api/database/migrate.ts && tsx api/database/seed.ts",
+    "dev": "tsx server.ts",
+    "build": "rm -rf dist && npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir ../dist/client",
+    "build:server": "vite build --ssr server.tsx --outDir ../dist/server",
+    "preview": "NODE_ENV=production tsx server.ts",
+    "format": "prettier --check .",
+    "lint": "eslint --quiet .",
+    "test": "vitest --run"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^14.1.2",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "@unocss/preset-wind": "^0.58.3",
+    "@unocss/reset": "^0.58.3",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "happy-dom": "^13.0.6",
+    "prettier": "^3.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "unocss": "^0.58.3",
+    "vite": "^5.0.11",
+    "vitest": "^1.2.0"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.17.10",
+    "@tanstack/react-virtual": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "workspaces": [
+    "api"
+  ]
+}

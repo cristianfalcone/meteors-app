@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "types": ["node"],
+    "outDir": "../dist/api",
+    "rootDir": "./",
+    "noEmit": false
+  }
+}

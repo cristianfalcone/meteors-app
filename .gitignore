@@ -1,0 +1,5 @@
+.env
+db.sqlite
+dist
+coverage
+node_modules
