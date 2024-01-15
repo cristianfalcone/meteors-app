@@ -1,10 +1,13 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "lib": ["esnext"],
     "types": ["node"],
     "outDir": "../dist/api",
-    "rootDir": "./",
-    "noEmit": false
+    "rootDir": "./"
   }
 }

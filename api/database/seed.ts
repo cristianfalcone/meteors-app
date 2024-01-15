@@ -1,4 +1,4 @@
-import * as meteor from "../meteors/meteor.seeder.ts";
+import * as meteor from "../meteors/meteor.seeder";
 import { db } from ".";
 
 async function seed() {

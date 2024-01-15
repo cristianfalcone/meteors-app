@@ -5,9 +5,10 @@
   "scripts": {
     "bootstrap": "tsx api/database/migrate.ts && tsx api/database/seed.ts",
     "dev": "tsx server.ts",
-    "build": "rm -rf dist && npm run build:client && npm run build:server",
+    "build": "rm -rf dist && npm run build:client && npm run build:server && npm run build:api",
     "build:client": "vite build --ssrManifest --outDir ../dist/client",
     "build:server": "vite build --ssr server.tsx --outDir ../dist/server",
+    "build:api": "tsc --project api/tsconfig.json",
     "preview": "NODE_ENV=production tsx server.ts",
     "format": "prettier --check .",
     "lint": "eslint --quiet .",
