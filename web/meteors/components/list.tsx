@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Meteor } from "../../../api/meteors";
 import MeteorListItem from "./item";
@@ -32,11 +32,9 @@ export default function MeteorList({
 
   // Load more when the user scrolls to the bottom of the list
   useEffect(() => {
-    const [last] = [...rows.reverse()];
+    const last = rows[rows.length - 1];
 
-    if (!last) {
-      return;
-    }
+    if (!last) return;
 
     if (last.index >= length - 1 && hasMore && !loading) {
       onLoadMore();
@@ -47,9 +45,7 @@ export default function MeteorList({
   useLayoutEffect(() => {
     const element = containerElement.current as HTMLElement | null;
 
-    if (!element) {
-      return;
-    }
+    if (!element) return;
 
     const resizeObserver = new ResizeObserver(() => {
       const height = element.clientHeight;
@@ -58,9 +54,7 @@ export default function MeteorList({
 
     resizeObserver.observe(element);
 
-    return () => {
-      resizeObserver.disconnect();
-    };
+    return () => resizeObserver.disconnect();
   }, [containerElement]);
 
   return (
@@ -80,7 +74,7 @@ export default function MeteorList({
             return (
               <div
                 key={row.index}
-                className="absolute top-0 left-0 w-full"
+                className="top-0 left-0 w-full absolute"
                 style={{
                   height: `${row.size}px`,
                   transform: `translateY(${row.start}px)`,
